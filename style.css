@@ -21,17 +21,19 @@ h1 {
 
 .inputs {
     display: flex;
-    margin: 20px;
+    margin: 10px;
 }
 
 input {
-    padding: 5px;
-    margin: 5px;
+    margin-left: 25px;
 }
 
 #submit {
     float: right;
     margin-right: 70px;
+    border-radius: 5px;
+    border: 1px solid black;
+    background-color: lightgrey;
 }
 
 .total {

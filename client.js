@@ -1,36 +1,24 @@
-console.log('client.js has been loaded');
-
-
 let startingCost = 15500;
-let employees = 3;
 
 $(document).ready(onReady);
 
 function onReady(){
-    console.log('document is ready');
+    $('#tableBody').on('click', '.deleteButton', deleteButton);
     $('#submit').on('click', submit); 
     $('#totalCost').text(startingCost);
-    $('#tableBody').on('click', '.deleteButton', deleteButton);
-
-}
-
+} 
 
 function submit() {
-    console.log('adding employee!');
     let firstName = $('#firstName').val();
     let lastName = $('#lastName').val();
     let id = $('#id').val();
     let title = $('#title').val();
     let salary = $('#salary').val();
-    startingCost += (salary/12);
+    startingCost += (salary / 12);
     if (startingCost >= 20000) {
       $('#totalCost').css('color', 'red');
     }
     $('#totalCost').text(startingCost);
-  
-    
-
-
     $('#tableBody').append(`
          <tr>
                 <td>${firstName} </td>
@@ -38,7 +26,7 @@ function submit() {
                 <td>${id}</td>
                 <td>${title}</td>
                 <td>${salary}</td>
-                 <td><button>delete</button></td>
+                 <td><button class="deleteButton" >delete</button></td>
             </tr>
     `)
     // clear fields

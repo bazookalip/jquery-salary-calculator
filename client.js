@@ -14,11 +14,14 @@ function submit() {
     let id = $('#id').val();
     let title = $('#title').val();
     let salary = $('#salary').val();
-    startingCost += (salary / 12);
-    if (startingCost >= 20000) {
-      $('#totalCost').css('color', 'red');
+    let totalCost = startingCost + (salary / 12);
+    startingCost += totalCost;
+    totalCost = totalCost.toFixed(2);
+    if (totalCost >= 20000) {
+    $('#total').css('background-color', 'red',);
+    $('#total').css('color', 'white');
     }
-    $('#totalCost').text(startingCost);
+    $('#totalCost').text(totalCost);
     $('#tableBody').append(`
          <tr>
                 <td>${firstName} </td>
@@ -41,4 +44,7 @@ function submit() {
 function deleteButton (){
     console.log('delete button!');
     $(this).closest('tr').remove();
+    
 }
+
+
